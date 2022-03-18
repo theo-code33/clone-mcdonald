@@ -56,6 +56,7 @@ export default {
             text-transform: uppercase;
 
             h3{
+                text-align: left;
                 margin: 0;
             }
             p{
