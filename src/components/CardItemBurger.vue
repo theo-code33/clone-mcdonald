@@ -36,6 +36,7 @@ export default {
         justify-content: flex-start;
         border: 1px solid #dcdcdc;
         border-radius: 4px;
+        margin: 20px;
         padding: 24px 16px;
         cursor: pointer;
         

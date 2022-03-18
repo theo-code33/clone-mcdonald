@@ -42,6 +42,16 @@ export default createStore({
         name: 'Triple Cheese Bacon',
         price: 5.40,
         img: 'https://ws.mcdonalds.fr/media/ca/4f/5e/ca4f5e126daa548ccfe11ad7259228c7e019864c?auto=webp&width=1280&disable=upscale'
+      },
+      mcMuffinEgg: {
+        name: 'McMuffin Egg & Cheese',
+        price: 3.20,
+        img: 'https://ws.mcdonalds.fr/media/03/4c/d0/034cd0b797b0bd49bd1fe2fe30a85ecf318a710f?auto=webp&width=1280&disable=upscale'
+      },
+      mcMuffinBacon: {
+        name: 'McMuffin Egg & Bacon',
+        price: 3.00,
+        img: 'https://ws.mcdonalds.fr/media/a4/fa/b5/a4fab51265e6b43e061164b3d8b7c6d1a7464b78?auto=webp&width=1280&disable=upscale'
       }
     }
   },
