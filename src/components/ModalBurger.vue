@@ -8,7 +8,20 @@
         <div class="detail-burger">
             <img :src="img" :alt="name">
             <h1>{{name}}</h1>
-            <p class="detail-burger-price">{{price}} €</p>
+            <p class="detail-burger-price">{{priceItem}} €</p>
+        </div>
+        <div class="number-add-item">
+            <button class="button-less" @click="removeItem">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                </svg>      
+            </button>
+            <p class="number-of-item">{{numberOfItem}}</p>
+            <button class="button-less" @click="addItem">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                </svg>      
+            </button>
         </div>
     </div>
 </template>
@@ -16,21 +29,40 @@
 <script>
 export default {
     name: 'ModalBurger',
+    data(){
+        return{
+            numberOfItem: 1,
+        }
+    },
     props: {
         name: {
             type: String,
         },
         price: {
             type: Number,
+            calculPrice: function(){
+            return this.price = this.price * this.numberOfItem
+            }
         },
         img: {
             type: Object,
         }
     },
+    computed: {
+        
+    },
     methods: {
         close(){
             this.$emit('close')
-        }
+        },
+        addItem(){
+            this.numberOfItem = this.numberOfItem + 1
+        },
+        removeItem(){
+            if(this.numberOfItem > 0){
+                this.numberOfItem = this.numberOfItem - 1
+            }
+        },
     }
 }
 </script>

@@ -21,7 +21,7 @@ export default {
     <CardItemBurger
       v-for="item in burger"
       :name="item.name"
-      :price='item.price'
+      :price="item.price + '0'"
       :img='item.img'
       :key="item.name"
     />
