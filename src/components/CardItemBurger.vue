@@ -1,5 +1,5 @@
 <template>
-    <div class="card-burger">
+    <div class="card-burger" @click="isOpen = true">
         <div class="card-burger-left">
             <img :src="img" :alt="name">
         </div>
@@ -8,11 +8,26 @@
             <p>{{price}} €</p>
         </div>
     </div>
+    <ModalBurger
+    v-if="isOpen"
+    :name="name"
+    :price="price"
+    :img="img"
+    />
 </template>
 
 <script>
+import ModalBurger from './ModalBurger.vue'
 export default {
     name: 'CardItemBurger',
+    data(){
+        return {
+            isOpen: false,
+        } 
+    },
+    components: {
+        ModalBurger,
+    },
     props:{
         name: {
             type: String,
