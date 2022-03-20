@@ -1,21 +1,3 @@
-<template>
-    <div class="card-burger" @click="isOpen = true">
-        <div class="card-burger-left">
-            <img :src="img" :alt="name">
-        </div>
-        <div class="card-burger-right">
-            <h3>{{name}}</h3>
-            <p>{{price}} €</p>
-        </div>
-    </div>
-    <ModalBurger
-    v-if="isOpen"
-    :name="name"
-    :price="price"
-    :img="img"
-    />
-</template>
-
 <script>
 import ModalBurger from './ModalBurger.vue'
 export default {
@@ -38,9 +20,33 @@ export default {
         img: {
             type: Object,
         }
+    },
+    methods: {
+        closeModal(){
+            this.isOpen = false
+        }
     }
 }
 </script>
+
+<template>
+    <div class="card-burger" @click="isOpen = true">
+        <div class="card-burger-left">
+            <img :src="img" :alt="name">
+        </div>
+        <div class="card-burger-right">
+            <h3>{{name}}</h3>
+            <p>{{price}} €</p>
+        </div>
+    </div>
+    <ModalBurger
+    v-if="isOpen"
+    @close="closeModal"
+    :name="name"
+    :price="price"
+    :img="img"
+    />
+</template>
 
 <style lang="scss">
     .card-burger{
