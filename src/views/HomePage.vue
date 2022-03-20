@@ -31,7 +31,7 @@ export default {
 
 <style lang="scss">
   .container-burger{
-    width: 30%;
+    max-width: 900px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
