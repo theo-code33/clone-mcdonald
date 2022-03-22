@@ -5,6 +5,7 @@ export default {
     data(){
         return {
             isOpen: false,
+            numberOfItem: 1
         } 
     },
     components: {
@@ -24,7 +25,20 @@ export default {
     methods: {
         closeModal(){
             this.isOpen = false
-        }
+        },
+        sendValue(){
+            this.$emit('numberOfItem', this.numberOfItem)
+        },
+        addItem(){
+            this.numberOfItem = this.numberOfItem + 1
+            this.sendValue()
+        },
+        removeItem(){
+            if(this.numberOfItem > 0){
+                this.numberOfItem = this.numberOfItem - 1
+                this.sendValue()
+            }
+        },
     }
 }
 </script>
@@ -45,7 +59,19 @@ export default {
     :name="name"
     :price="price"
     :img="img"
-    />
+    >
+        <button @click="removeItem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+            </svg>
+        </button>
+        <p>{{numberOfItem}}</p>
+        <button @click="addItem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+        </button>
+    </ModalBurger>
 </template>
 
 <style lang="scss">
