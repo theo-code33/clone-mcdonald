@@ -20,14 +20,11 @@ export default {
         },
         img: {
             type: Object,
-        }
+        },
     },
     methods: {
         closeModal(){
             this.isOpen = false
-        },
-        sendValue(){
-            this.$emit('numberOfItem', this.numberOfItem)
         },
         addItem(){
             this.numberOfItem = this.numberOfItem + 1

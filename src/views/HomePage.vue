@@ -3,19 +3,17 @@ import CardItemBurger from '../components/CardItemBurger.vue'
 import { mapState } from 'vuex'
 export default {
   name: 'HomePage',
+  data(){
+    return{
+      number: 1
+    }
+  },
   components: {
     CardItemBurger
   },
   computed: {
     ...mapState(['burger']),
   },
-  methods: {
-    multipliePrice(numberOfItem){
-        console.log(numberOfItem);
-        console.log(this.burger.price);
-        console.log(this.burger.price * numberOfItem);
-    }
-  }
   
 }
 </script>
@@ -29,7 +27,6 @@ export default {
       :price="item.price + '0'"
       :img='item.img'
       :key="item.name"
-      v-on:numberOfItem = 'multipliePrice'
     />
     </div>
   </div>
